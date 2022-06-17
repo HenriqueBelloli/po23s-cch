@@ -1,17 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package utfpr.gui;
 
 import utfpr.banco.Banco;
-import utfpr.banco.ContaBancaria;
-import utfpr.banco.ContaCorrente;
 
-/**
- *
- * @author Henrique
- */
 public class TelaPrincipal extends javax.swing.JFrame {
 
     private Banco banco;
@@ -20,37 +10,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.banco = banco;
     }
 
-    private void carregarSaldos() {
-        ContaBancaria aux;
-
-        lblBancoNome.setText(banco.getNome());
-        txtSaldoMedio.setText("R$ " + Double.toString(banco.getSaldoMedioContas()));
-        txtSaldoMedioCC.setText("R$ " + Double.toString(banco.getSaldoMedioContasCorrente()));
-        txtSaldoMedioCP.setText("R$ " + Double.toString(banco.getSaldoMedioContasPupanca()));
-
-        aux = banco.getContaMenorSaldo();
-        txtMenorSaldoValor.setText("R$ " + Double.toString(aux.getSaldo()));
-        lblMenorSaldoTitular.setText(aux.getNumero() + " - " + aux.getTitular().getNome());
-        if (aux instanceof ContaCorrente) {
-            lblMenorSaldoTipo.setText("Conta corrente");
-        } else {
-            lblMenorSaldoTipo.setText("Conta poupança");
-        }
-
-        aux = banco.getContaMaiorSaldo();
-        txtMaiorSaldoValor.setText("R$ " + Double.toString(aux.getSaldo()));
-        lblMaiorSaldoTitular.setText(aux.getNumero() + " - " + aux.getTitular().getNome());
-        if (aux instanceof ContaCorrente) {
-            lblMaiorSaldoTipo.setText("Conta corrente");
-        } else {
-            lblMaiorSaldoTipo.setText("Conta poupança");
-        }
-
-    }
-
-    /**
-     * Creates new form Teste
-     */
     public TelaPrincipal() {
         initComponents();
     }
@@ -64,313 +23,134 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblBancoNome = new javax.swing.JLabel();
-        lblSaldoMedio = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        txtSaldoMedio = new javax.swing.JFormattedTextField();
-        jPanel2 = new javax.swing.JPanel();
-        lblSaldoMedioCC = new javax.swing.JLabel();
-        txtSaldoMedioCC = new javax.swing.JFormattedTextField();
-        jPanel3 = new javax.swing.JPanel();
-        lblSaldoMedioCP = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        txtSaldoMedioCP = new javax.swing.JFormattedTextField();
-        lblMenorSaldo = new javax.swing.JLabel();
-        txtMenorSaldoValor = new javax.swing.JFormattedTextField();
-        jPanel5 = new javax.swing.JPanel();
-        lblMenorSaldoTitular = new javax.swing.JLabel();
-        lblMenorSaldoTipo = new javax.swing.JLabel();
-        lblMaiorSaldoTitular = new javax.swing.JLabel();
-        lblMaiorSaldo = new javax.swing.JLabel();
-        lblMaiorSaldoTipo = new javax.swing.JLabel();
-        txtMaiorSaldoValor = new javax.swing.JFormattedTextField();
-        jPanel6 = new javax.swing.JPanel();
+        desktopPane = new javax.swing.JDesktopPane();
+        btnSair = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnSaldos = new javax.swing.JButton();
+        btnContas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
+        setBackground(java.awt.SystemColor.window);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.white);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
+
+        desktopPane.setBackground(java.awt.SystemColor.window);
+
+        javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
+        desktopPane.setLayout(desktopPaneLayout);
+        desktopPaneLayout.setHorizontalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 665, Short.MAX_VALUE)
+        );
+        desktopPaneLayout.setVerticalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 381, Short.MAX_VALUE)
+        );
+
+        btnSair.setBackground(java.awt.SystemColor.controlLtHighlight);
+        btnSair.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
             }
         });
 
-        lblBancoNome.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        lblBancoNome.setForeground(new java.awt.Color(100, 100, 100));
-        lblBancoNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBancoNome.setText("NOME DO BANCO");
+        btnClientes.setBackground(java.awt.SystemColor.controlLtHighlight);
+        btnClientes.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btnClientes.setText("Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
-        lblSaldoMedio.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        lblSaldoMedio.setForeground(new java.awt.Color(115, 115, 115));
-        lblSaldoMedio.setText("Saldo médio");
+        btnSaldos.setBackground(java.awt.SystemColor.controlLtHighlight);
+        btnSaldos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btnSaldos.setText("Saldos");
+        btnSaldos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaldosActionPerformed(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        jButton1.setText("Clientes");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        txtSaldoMedio.setEditable(false);
-        txtSaldoMedio.setBorder(null);
-        txtSaldoMedio.setForeground(new java.awt.Color(57, 102, 159));
-        txtSaldoMedio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("R$ #,##0.###"))));
-        txtSaldoMedio.setText("R$ 0,00");
-        txtSaldoMedio.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-
-        jPanel2.setBackground(new java.awt.Color(57, 102, 159));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 72, Short.MAX_VALUE)
-        );
-
-        lblSaldoMedioCC.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        lblSaldoMedioCC.setForeground(new java.awt.Color(115, 115, 115));
-        lblSaldoMedioCC.setText("Saldo médio contas correntes");
-
-        txtSaldoMedioCC.setEditable(false);
-        txtSaldoMedioCC.setBorder(null);
-        txtSaldoMedioCC.setForeground(new java.awt.Color(57, 102, 159));
-        txtSaldoMedioCC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("R$ #,##0.###"))));
-        txtSaldoMedioCC.setText("R$ 0,00");
-        txtSaldoMedioCC.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-
-        jPanel3.setBackground(new java.awt.Color(57, 102, 159));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 72, Short.MAX_VALUE)
-        );
-
-        lblSaldoMedioCP.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        lblSaldoMedioCP.setForeground(new java.awt.Color(115, 115, 115));
-        lblSaldoMedioCP.setText("Saldo médio contas poupanças");
-
-        jPanel4.setBackground(new java.awt.Color(57, 102, 159));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 72, Short.MAX_VALUE)
-        );
-
-        txtSaldoMedioCP.setEditable(false);
-        txtSaldoMedioCP.setBorder(null);
-        txtSaldoMedioCP.setForeground(new java.awt.Color(57, 102, 159));
-        txtSaldoMedioCP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("R$ #,##0.###"))));
-        txtSaldoMedioCP.setText("R$ 0,00");
-        txtSaldoMedioCP.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-
-        lblMenorSaldo.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        lblMenorSaldo.setForeground(new java.awt.Color(115, 115, 115));
-        lblMenorSaldo.setText("Conta com menor saldo");
-
-        txtMenorSaldoValor.setEditable(false);
-        txtMenorSaldoValor.setBorder(null);
-        txtMenorSaldoValor.setForeground(new java.awt.Color(239, 162, 82));
-        txtMenorSaldoValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("R$ #,##0.###"))));
-        txtMenorSaldoValor.setText("R$ 0,00");
-        txtMenorSaldoValor.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-
-        jPanel5.setBackground(new java.awt.Color(239, 162, 82));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 131, Short.MAX_VALUE)
-        );
-
-        lblMenorSaldoTitular.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblMenorSaldoTitular.setForeground(new java.awt.Color(100, 100, 100));
-        lblMenorSaldoTitular.setText("Codigo - Titular");
-
-        lblMenorSaldoTipo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblMenorSaldoTipo.setForeground(new java.awt.Color(100, 100, 100));
-        lblMenorSaldoTipo.setText("Tipo");
-
-        lblMaiorSaldoTitular.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblMaiorSaldoTitular.setForeground(new java.awt.Color(100, 100, 100));
-        lblMaiorSaldoTitular.setText("Codigo - Titular");
-
-        lblMaiorSaldo.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        lblMaiorSaldo.setForeground(new java.awt.Color(115, 115, 115));
-        lblMaiorSaldo.setText("Conta com maior saldo");
-
-        lblMaiorSaldoTipo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblMaiorSaldoTipo.setForeground(new java.awt.Color(100, 100, 100));
-        lblMaiorSaldoTipo.setText("Tipo");
-
-        txtMaiorSaldoValor.setEditable(false);
-        txtMaiorSaldoValor.setBorder(null);
-        txtMaiorSaldoValor.setForeground(new java.awt.Color(0, 150, 115));
-        txtMaiorSaldoValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("R$ #,##0.###"))));
-        txtMaiorSaldoValor.setText("R$ 0,00");
-        txtMaiorSaldoValor.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-
-        jPanel6.setBackground(new java.awt.Color(0, 150, 115));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 131, Short.MAX_VALUE)
-        );
+        btnContas.setBackground(java.awt.SystemColor.controlLtHighlight);
+        btnContas.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btnContas.setText("Contas");
+        btnContas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(lblBancoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(107, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(lblSaldoMedio))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSaldoMedio, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(66, 66, 66)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(lblSaldoMedioCC))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSaldoMedioCC, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(lblSaldoMedioCP))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSaldoMedioCP, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(45, 45, 45))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMenorSaldo)
-                            .addComponent(lblMenorSaldoTitular)
-                            .addComponent(txtMenorSaldoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMenorSaldoTipo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMaiorSaldo)
-                            .addComponent(lblMaiorSaldoTitular)
-                            .addComponent(txtMaiorSaldoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMaiorSaldoTipo))
-                        .addGap(213, 213, 213))))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSaldos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnContas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(desktopPane))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnClientes, btnContas, btnSair, btnSaldos});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblBancoNome)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSaldoMedioCP)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtSaldoMedioCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSaldoMedio)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtSaldoMedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSaldoMedioCC)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtSaldoMedioCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblMenorSaldo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMenorSaldoTitular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMenorSaldoTipo)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMenorSaldoValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblMaiorSaldo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMaiorSaldoTitular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMaiorSaldoTipo)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMaiorSaldoValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSaldos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnClientes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnContas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnClientes, btnContas, btnSair, btnSaldos});
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        carregarSaldos();
-    }//GEN-LAST:event_formWindowActivated
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        desktopPane.removeAll();
+        desktopPane.repaint();
+
+        ListaClientes listaClientes = new ListaClientes(banco.listarClientes());
+        desktopPane.add(listaClientes);
+        listaClientes.show();
+    }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        
+        System.exit(0);
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnSaldosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaldosActionPerformed
+        desktopPane.removeAll();
+        desktopPane.repaint();
+
+        ListaSaldos listaSaldos = new ListaSaldos(banco);
+        desktopPane.add(listaSaldos);
+        listaSaldos.show();
+    }//GEN-LAST:event_btnSaldosActionPerformed
+
+    private void btnContasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnContasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -384,7 +164,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         try {
 
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -407,31 +187,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 new TelaPrincipal().setVisible(true);
             }
         });
-        System.out.println("passou");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel lblBancoNome;
-    private javax.swing.JLabel lblMaiorSaldo;
-    private javax.swing.JLabel lblMaiorSaldoTipo;
-    private javax.swing.JLabel lblMaiorSaldoTitular;
-    private javax.swing.JLabel lblMenorSaldo;
-    private javax.swing.JLabel lblMenorSaldoTipo;
-    private javax.swing.JLabel lblMenorSaldoTitular;
-    private javax.swing.JLabel lblSaldoMedio;
-    private javax.swing.JLabel lblSaldoMedioCC;
-    private javax.swing.JLabel lblSaldoMedioCP;
-    private javax.swing.JFormattedTextField txtMaiorSaldoValor;
-    private javax.swing.JFormattedTextField txtMenorSaldoValor;
-    private javax.swing.JFormattedTextField txtSaldoMedio;
-    private javax.swing.JFormattedTextField txtSaldoMedioCC;
-    private javax.swing.JFormattedTextField txtSaldoMedioCP;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnContas;
+    private javax.swing.JButton btnSair;
+    private javax.swing.JButton btnSaldos;
+    private javax.swing.JDesktopPane desktopPane;
     // End of variables declaration//GEN-END:variables
 }

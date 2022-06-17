@@ -127,13 +127,13 @@ public class Banco {
 
     public HashMap listarClientes() {
 
-        HashMap<Integer, String> clientes = new HashMap();
+        HashMap<Integer, Cliente> clientes = new HashMap();
 
         for (ContaBancaria conta : contas) {
             Cliente titular = conta.getTitular();
 
             if (!clientes.containsKey(titular.getCod())) {
-                clientes.put(titular.getCod(), titular.getNome());
+                clientes.put(titular.getCod(), titular);
             }
         }
 
