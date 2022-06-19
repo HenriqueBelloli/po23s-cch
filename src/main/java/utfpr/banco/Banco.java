@@ -43,6 +43,7 @@ public class Banco {
     // saldo de contas poupança
     // saldo de contas corrente
     // saldo de todas contas
+    
     public void listarContas() {
         System.out.println("Banco: " + this.nome);
         System.out.println("Lista de contas...");
@@ -50,6 +51,15 @@ public class Banco {
             System.out.println(conta.getInformacoes());
         }
     }
+    
+    public ArrayList<ContaBancaria> listarContasBancarias(){
+    ArrayList<ContaBancaria> contasBancarias = new ArrayList();
+    for(ContaBancaria conta : contas){
+        contasBancarias.add(conta);
+    }
+    return contasBancarias;
+}
+
 
     public ContaBancaria getContaMaiorSaldo() {
         ContaBancaria contaRetorno = null;
@@ -139,4 +149,5 @@ public class Banco {
 
         return clientes;
     }
+
 }
